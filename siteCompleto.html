@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Aumentar e diminuir fonte - Acessibilidade</title>
+
+        <style type="text/css">
+            body {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="btn-container">
+            <button name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
+            <button name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
+        </div>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+
+        <script type="text/javascript">
+            window.onload = function() {
+                var elementBody = document.querySelector('body');
+                var elementBtnIncreaseFont = document.getElementById('increase-font');
+                var elementBtnDecreaseFont = document.getElementById('decrease-font');
+                // Padrão de tamanho, equivale a 100% do valor definido no Body
+                var fontSize = 100;
+                // Valor de incremento ou decremento, equivale a 10% do valor do Body
+                var increaseDecrease = 10;
+
+                // Evento de click para aumentar a fonte
+                elementBtnIncreaseFont.addEventListener('click', function(event) {
+                    fontSize = fontSize + increaseDecrease;
+                    elementBody.style.fontSize = fontSize + '%';
+                });
+
+                // Evento de click para diminuir a fonte
+                elementBtnDecreaseFont.addEventListener('click', function(event) {
+                    fontSize = fontSize - increaseDecrease;
+                    elementBody.style.fontSize = fontSize + '%';
+                });
+            }
+        </script>
+    </body>
+</html>
